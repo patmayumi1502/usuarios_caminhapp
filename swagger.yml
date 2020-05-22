@@ -1,0 +1,165 @@
+swagger: "2.0"
+info:
+  description: Swagger file
+  version: "1.0.0"
+  title: Swagger ReST Usuarios
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /usuarios:
+    get:
+      operationId: usuarios.read_all
+      tags:
+        - Usuarios
+      summary: Lista de Usuarios 
+      description: Lista de Usuarios Cadastrados
+      responses:
+        200:
+          description: Sucesso na leitura de usuarios
+          schema:
+            type: array
+            items:
+              properties:
+                cpf:
+                  type: string
+                nome:
+                  type: string                
+                ddd:
+                  type: string
+                tel:
+                  type: string             
+                placa:
+                  type: string
+                tipoVeiculo:
+                  type: string                
+                carroceria:
+                  type: string
+
+    post:
+      operationId: usuarios.create
+      tags:
+        - Usuarios
+      summary: Cria um usuario e adiciona na lista de usuarios
+      description: Adiciona na lista de usuarios
+      parameters:
+        - name: user
+          in: body
+          description: Usuario a ser criado
+          required: True
+          schema:
+            type: object
+            properties:
+              cpf:
+                type: string
+                description: CPF
+              nome:
+                type: string
+                description: Nome                  
+              ddd:
+                type: string
+                description: DDD
+              tel:
+                type: string
+                description: Telefone
+              placa:
+                type: string
+                description: Placa do Veículo
+              tipoVeiculo:
+                type: string
+                description: Tipo do veículo         
+              carroceria:
+                type: string
+                description: Carroceria
+      responses:
+        201:
+          description: Sucesso ao criar usuario
+
+  /usuarios/{cpf}:
+    get:
+      operationId: usuarios.read_one
+      tags:
+        - Usuarios
+      summary: Leitura de um usuario da lista de usuarios
+      description: Leitura de um usuario
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso na leitura de um usuario
+          schema:
+            type: array
+            items:
+              properties:
+                cpf:
+                  type: string
+                nome:
+                  type: string                
+                ddd:
+                  type: string
+                tel:
+                  type: string             
+                placa:
+                  type: string
+                tipoVeiculo:
+                  type: string                
+                carroceria:
+                  type: string
+
+    put:
+      operationId: usuarios.update
+      tags:
+        - Usuarios
+      summary: Atualiza na lista de usuarios
+      description: Atualiza um usuario na lista de usuarios
+      parameters:
+        - name: cpf
+          in: path
+          description: CPF
+          type: string
+          required: True
+        - name: user
+          in: body
+          schema:
+            type: object
+            properties:
+              cpf:
+                type: string
+              nome:
+                type: string                
+              ddd:
+                type: string
+              tel:
+                type: string             
+              placa:
+                type: string
+              tipoVeiculo:
+                type: string                
+              carroceria:
+                type: string
+      responses:
+        200:
+          description: Sucesso ao atualizar usuario
+
+    delete:
+      operationId: usuarios.delete
+      tags:
+        - Usuarios
+      summary: Deletar um usuario na lista de usuarios
+      description: Exclui um usuario
+      parameters:
+        - name: cpf
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Sucesso ao excluir um usuario

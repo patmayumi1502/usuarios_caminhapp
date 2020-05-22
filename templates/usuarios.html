@@ -1,0 +1,114 @@
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias: https://getbootstrap.com.br/docs/3.3/css/#tables -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>CaminhApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script>
+  </head>
+  <body >
+	
+    <div class="container" style="width:1000px; margin:0 auto; padding:0;" >
+		<div style="width:800px;">
+			<img src="static/images/topo.jpg" alt="CaminhApp" >
+		</div>
+		<div id="menu" style="float:left; padding:0;"> 
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="width:1000px;">
+
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+				  <li class="nav-item" style="width:150px; text-align:center;">
+					<a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
+				  </li>
+				  <li class="nav-item" style="width:150px; text-align:center;">
+					<a class="nav-link" href="#">Institucional</a>
+				  </li>
+				  <li class="nav-item active" style="width:150px; text-align:center;">
+					<a class="nav-link" href="./usuario.html">Usuário</a>
+				  </li>
+				  <li class="nav-item" style="width:150px; text-align:center;">
+					<a class="nav-link" href="#">Contato</a>
+				  </li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0" style="margin-left:35px;">
+				  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			  </div>
+			</nav>
+			
+		</div>			
+		<div style="width:800px;">		
+			<img src="static/images/banner.jpg" alt="Banner">
+		</div>
+	<div id="form" style="padding-left:10px;">
+    <h1>Consulte seu CPF</h1>
+    <div class="section editor"> 
+      <label for="cpf" >CPF <input id="cpf" class="form-control" type="text" style="width: 200px; "> </label> 
+      <button id="consulta" class="btn btn-primary">Consultar</button><br>
+      <div id="formCadastro">
+        <label for="nome">Nome <input id="nome" class="form-control" type="text" style="width: 400px;"> </label> <br>
+        <label for="ddd" >DDD <input id="ddd" type="text" class="form-control" style="width: 50px;"> </label>
+        <label for="tel" style="margin-left: 20px;">Telefone <input id="tel" type="text" class="form-control"> </label> <br>
+        <label for="placa">Placa do Veículo <input id="placa" type="text" class="form-control"> </label> <br>
+        <label for="tipoVeiculo">Tipo do veículo:</label><br>
+        <select id="tipoVeiculo" class="form-control" style="width:200px;">
+    		  <option value="rodotrem">Rodotrem</option>
+    		  <option value="bitrem">Bitrem</option>
+    		  <option value="carreta">Carreta</option>
+    		  <option value="truck">Truck</option>
+    		  <option value="vanderleia">Vanderleia</option>
+		    </select>		<br>
+    		<label for="carroceria">Carroceria:</label><br>
+    		<select id="carroceria" class="form-control" style="width:200px;">
+    		  <option value="bau">Bau</option>
+    		  <option value="sider">Sider</option>
+    		  <option value="granaleiro">Granaleiro</option>
+    		  <option value="plataforma">Plataforma</option>
+    		</select>
+	
+        <br><br>
+        <button id="create" class="btn btn-primary" style="width:150px; float: left; margin-right: 10px;">Cadastrar</button>
+        <button id="update" class="btn btn-danger" style="width:150px; float: left; margin-right: 10px;">Atualizar</button>
+        <button id="delete" class="btn btn-warning" style="width:150px; float: left; margin-right: 10px;">Deletar</button>
+		  </div>
+      <br>
+      
+	  <blockquote style="clear: both;">
+        <p>Clique duas vezes nos nomes abaixo para editar.</p>
+      </blockquote>
+      <div class="conteudo">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>DDD</th>
+              <th>Telefone</th>
+              <th>Placa</th>
+              <th>Tipo Veículo</th>             
+              <th>Carroceria</th>  
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="error"> </div>
+    </div>
+  </div>    
+    <script src="static/js/usuarios.js"></script>
+
+    <!-- Dependencias Bootstrap: jQuery.js, Popper.js, Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>
