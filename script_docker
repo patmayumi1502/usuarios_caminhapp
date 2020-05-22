@@ -1,0 +1,11 @@
+version: '3'
+services:
+  usuarios:
+    image: patmayumi1502/usuarios-caminhapp
+    container_name: usuarios-caminhapp
+    network_mode: "host"
+    ports:
+      - 5050:5000
+    environment:
+      - "ADVERTISED_HOST=0.0.0.0"
+      - "ADVERTISED_PORT=5000"
