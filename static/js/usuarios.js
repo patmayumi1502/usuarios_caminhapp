@@ -177,6 +177,8 @@ ns.view = (function() {
                 
                 $('#formCadastro').css('display', 'block');
                 $('#create').css('display', 'none');
+                $('#update').css('display', 'block');
+                $('#delete').css('display', 'block');
                 
             }
         },
