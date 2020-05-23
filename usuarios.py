@@ -1,8 +1,15 @@
+from kafka import KafkaProducer
+from kafka.errors import KafkaError
 from datetime import datetime
 from flask import jsonify, make_response, abort
+from producer import create_msg
+import requests
+import connexion
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
+    
+data = get_timestamp()
 
 USUARIOS = {
     "12345678900": {
@@ -34,6 +41,12 @@ USUARIOS = {
     },
 }
 
+class Texto:
+    def __init__(self, msg, n):
+        self.texto = msg
+    def get(self, m, n):
+        return self.texto
+        
 def read_all():
     func_usuarios = [USUARIOS[key] for key in sorted(USUARIOS.keys())]
     usuario = jsonify(func_usuarios)
@@ -74,6 +87,8 @@ def create(user):
 			"tipoVeiculo": tipoVeiculo,
 			"carroceria": carroceria,
         }
+        print(str(create_msg(Texto("Usuário {cpf} criado com sucesso em {data}".format(cpf=cpf, data=data),""))))
+        
         return make_response(
             "Usuário {cpf} criado com sucesso".format(cpf=cpf), 201
         )
@@ -92,6 +107,8 @@ def update(cpf, user):
         USUARIOS[cpf]["placa"] = user.get("placa")
         USUARIOS[cpf]["tipoVeiculo"] = user.get("tipoVeiculo")
         USUARIOS[cpf]["carroceria"] = user.get("carroceria")
+        
+        print(str(create_msg(Texto("Usuário {cpf} alterado com sucesso em {data}".format(cpf=cpf, data=data),""))))
 
         return USUARIOS[cpf]
     else:
@@ -102,6 +119,9 @@ def update(cpf, user):
 def delete(cpf):
     if cpf in USUARIOS:
         del USUARIOS[cpf]
+        
+        print(str(create_msg(Texto("Usuário {cpf} removido com sucesso em {data}".format(cpf=cpf, data=data),""))))
+        
         return make_response(
             "Usuário {cpf} deletado com sucesso".format(cpf=cpf), 200
         )

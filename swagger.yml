@@ -163,3 +163,24 @@ paths:
       responses:
         200:
           description: Sucesso ao excluir um usuario
+  /kafka:
+    post:
+      operationId: producer.create_msg
+      tags:
+        - Kafka
+      summary: Create a message
+      description: Create a new message on Kafka topic
+      parameters:
+        - name: msg
+          in: body
+          description: Message to create
+          required: True
+          schema:
+            type: object
+            properties:
+              texto:
+                type: string
+                description: Texto da mensagem to create
+      responses:
+        201:
+          description: Successfully created message
