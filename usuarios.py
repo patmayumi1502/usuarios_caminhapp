@@ -68,6 +68,7 @@ def read_one(cpf):
     return user
 
 
+
 def create(user):
     cpf = user.get("cpf", None)
     nome = user.get("nome", None)
