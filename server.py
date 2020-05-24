@@ -28,4 +28,4 @@ if __name__ == '__main__':
             return self.texto
         print(str(create_msg(Texto("Caminhapp ativado em {data}".format(data=data),""))))
         
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)

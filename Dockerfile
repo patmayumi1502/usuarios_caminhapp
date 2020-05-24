@@ -1,7 +1,7 @@
 FROM python:3.6-alpine
 
 ENV TOPICO=meu-topico
-ENV HOST=caminhapp-net
+ENV HOST=0.0.0.0
 ENV PORTA=9092
 ENV SLACK=https://hooks.slack.com/services/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
 ENV CANAL=lab-produtor
